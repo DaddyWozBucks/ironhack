@@ -6,6 +6,7 @@ class Blog
 
 	def initialize
 		@all_posts = []
+		@position = 0
 
 	end
 
@@ -20,29 +21,40 @@ class Blog
 	def create_front_page
 	 
 		@all_posts = all_posts.sort_by! {|post, date| post.date}.reverse
-
-
-
-	 # all_posts.each do |v| 
-		# puts v.title
-		# puts "****************"
-		# puts v.text
-		# puts "----------------"
-		
 	
 	end
 
 	def publish_front_page
-		page_posts = @all_posts[0..2]
+		page_posts = @all_posts.slice(@position, @position + 3)
 		page_posts.each do |v|
 			puts v.title
 			puts v.date
 			puts "****************"
 			puts v.text
-			puts "----------------"
-			puts "Displaying 1 - 3 of #{@all_posts.length}"
+			puts "----------------" 
+			puts "Displaying #{@position + 1} - #{@position + 3} of #{@all_posts.length} posts"
+			puts
+			puts "Push N Key for next page"
+				info = gets.chomp
+					if info == "n"
+					turnpage
+					@position = @position + 3
+					end
+
 		end
 	end
+
+	def pgcount	
+		pgcount = (@all_posts.length) / 3
+	end
+	def turnpage
+	
+		puts " "
+        posts_to_print = @all_posts.slice(@position, @position + 3)
+        posts_to_print.each do |post|
+             puts post.date, post.title, post.text
+         end
+    end
 end
 
 
@@ -100,6 +112,12 @@ my_blog.add_post(sev_post)
 my_blog.add_post(eighth_post)
 my_blog.create_front_page
 my_blog.publish_front_page
+
+
+
+
+
+
 
 
 
