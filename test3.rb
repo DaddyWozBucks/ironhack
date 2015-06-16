@@ -1,113 +1,42 @@
-require 'pry'
-
-
-class Blog
-	attr_accessor :all_posts
-
-	def initialize
-		@all_posts = []
-		@position = 0
-
-	end
-
+class Game
 	
 
-	def add_post(post)
-		
-		@all_posts << post
-		
-	end
-
-	def create_front_page
-	 
-		@all_posts = all_posts.sort_by! {|post, date| post.date}.reverse
-	
-	end
-
-	def publish_front_page
-		page_posts = @all_posts.slice(@position, @position + 3)
-		page_posts.each do |v|
-			puts v.title
-			puts v.date
-			puts "****************"
-			puts v.text
-			puts "----------------"
-			puts "Displaying #{@position + 1} - #{@position + 3} of #{@all_posts.length} posts"
-		end
-	end
-
-	def pgcount	
-		pgcount = (@all_posts.length) / 3
+	def run(method)
+		@method = method
 	end
 end
 
 
-
-class Post
-	attr_accessor :title
-	attr_accessor :text
-	attr_accessor :date
-
-	def initialize(title, text, date)
-		
-		@title = title
-		@text = text
-		@date = date
+class Temple < Game
+	#center 1st visit
+	def temple_start
+		puts " You finally exit the perilous spiral, stone staircase.\n You are in a large temple filled with monks chanting.\n You are disorienated, confused and in pain." 
+		sleep 2
+		temple_action
 	end
-	def namechange
-			@title = "*******" + "#{@title}" + "******"
-		end
+	def temple_action
+			puts " Before you can really do much about it the monks see you"
+			puts " and spring to their feet yelling 'The Daemon is escaping!'"
+			puts " Immediately an array of bladed weapons appeared."
+			puts " It was clear these were those kind of monks"
+			puts " The North (n) and West(w) exits are blocked off by the charging monks"
+			puts " Do you flee South (s), East (e) or take your chances with the armed men (q)"
+			q = gets.chomp
+			if q == "s"
+				puts "temple_yard_entry"
+				
+			elsif
+				q == "e"
+				puts "Cliffs.cliffs_entry"
+			else
+				puts " You know how in most kung fu movies its 1 v 20 and the solo fighter wins? \n This is the counterpart to that. 20 highly skilled fighters versus a possible head trauma victim." 
+				puts " Needless to say you dont fare well"
+				puts " R.I.P"
+			end
+	end
+
+
 end
 
-# class Sponsored < Post
-# 	def initialize(title, text, date)
-# 		@title = title
-# 		@text = text
-# 		@date = date
-# 	end
-# 	def namechange
-# 		@title = "*******" + "#{@title}" + "******"
-# 	end
-# end
-
-
-
-my_first_post = Post.new("Title 1", "1st body", Time.new)
-second_post = Post.new("Title 2", "Body 2", Time.new)
-third_post = Post.new("Title 3", "Body 3", Time.new)
-fourth_post = Post.new("Title4", "Body4", Time.new)
-fifth_post = Post.new("Title5", "Body5", Time.new)
-sixth_post = Post.new("Title6", "Body6", Time.new)
-sev_post = Post.new("Title7", "Body7", Time.new)
-eighth_post = Post.new("Title8", "Body8", Time.new)
-
-fourth_post.namechange
-
-my_blog = Blog.new
-
-
-my_blog.add_post(my_first_post)
-my_blog.add_post(second_post)
-my_blog.add_post(third_post)
-my_blog.add_post(fourth_post)
-my_blog.add_post(fifth_post)
-my_blog.add_post(sixth_post)
-my_blog.add_post(sev_post)
-my_blog.add_post(eighth_post)
-my_blog.create_front_page
-my_blog.publish_front_page
-puts Blog.pgcount
-
-
-
-
-
-
-
-
-
-	
-
-
-
-
+game1 = Temple.new
+game1.temple_start
