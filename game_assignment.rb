@@ -111,8 +111,8 @@ class Room5 < Game
 end
 class Room6
 		def room6_start
-				puts " You are now in a cupboard." 
-				puts " There are a lot of cupboards in this place go back (e)"
+				puts " You are outside." 
+				puts " Run East (e) to your freedom!"
 				sleep 2
 				room6_action
 		end
@@ -120,13 +120,16 @@ class Room6
 			puts " Which way do you want to go?"
 			q = gets.chomp
 			if q == "e"
-				Room4.new.room4_start
+				puts "FREEEEEEDOMMMM"
 				
 			
 			else
-				puts " THERE IS NO NARNIA!"
-				room6_action
+				puts " You are an idiot!"
+				end_game
 			end
+		end
+		def end_game
+			put "Victory!"
 		end
 end
 
