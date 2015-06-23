@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome to Spotinatra Premium - where copyright can kiss my dead, loungesinging ass!!</title>
+</head>
+<body>
+<h1>Spotinatra Premium Songlist</h1>
+
+	<h3>Songs added</h3>
+	<% if @song_list.any? %>
+		<ol>	
+			<% @song_list.each do |songs| %>
+		<li> <%= songs %> </li>
+		<%end%>
+	</ol>
+	<%end%>
+	<a href="/addsongs"> Add some songs buddy 'ol pal :) </a>
+</body>
+</html>
+
+

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add a song, bub...</title>
+</head>
+<body>
+
+		<form action= "/" method= "get">
+			<ol>
+			<li><input type="text", name="Artist"<br></li>
+			<li><input type="text", name="Song"<br></li>
+			<% @song_list << [params["artist"], params["song"] %>
+			<input type="submit", name="Go_To_Add_Songs"<br>
+		</form>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Welcome friend to the ONLINE CALCULATOR OF DOOM!</title>
+</head>
+<body>
+	<div class=\"centered\">
+		<h1><%= DateTime.now %></h1>
+	</div>
+	<form action="/results" method="get">
+		Input1: <input type="text", name="input1"><br>
+		Input2: <input type="text", name="input2"<br>
+		Operators: 
+		<ol>
+			<li><input type="submit", name="multiply", value="*"<br></li>
+			<li><input type="submit", name="divide", value="/"<br></li>
+			<li><input type="submit", name="addition", value="+"<br></li>
+			<li><input type="submit", name="subtraction", value="-"<br></li>
+		</ol>
+		
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>

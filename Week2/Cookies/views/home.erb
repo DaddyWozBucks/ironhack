@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome to Omniveilance</title>
+</head>
+<body>
+	<h3>Users</h3>
+	<% if @users.any? %>
+		<ol>	
+			<% @users.each do |user| %>
+		<li> <%= user %> </li>
+		<%end%>
+	</ol>
+	<%end%>
+		
+	<form action = "/" method ="get">
+			UserID: <input type="text", name="user_id"><br>
+			Password: <input type="password", name="password"><br>
+			<input type="submit" value="Submit">
+	</form>
+
+
+	
+</body>
+</html>

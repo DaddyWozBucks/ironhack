@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ironhack Student Directory</title>
+</head>
+<body>
+	<header> Welcome the Ironhack Student Portal!</header>
+	Sign Up!
+	<form action = "/studentadd" method = "post">
+		Name:		<li><input type="text", name="name"<br></li>
+		Surnames:	<li><input type="text", name="surnames"<br></li>
+		Birthday:(YYYY-MM-DD)   <li><input type="text", name="birthday"<br></li>
+		Website:<li><input type="text", name="website"<br></li>
+		Number of canine compatriots: <li><input type="text", name="number_of_dogs"<br></li>
+		First Time Programming? (True/False)<li><input type="text", name="first_programming_experience"<br></li>
+		<input type="submit" value="Submit">
+	</form>
+	
+	Students currently enrolled:
+		
+	<table>
+		<tr>
+			<th> Name</th>
+			<th> Surnames</th>
+			<th> Birthday</th>
+			<th> Number of Dogs</th>
+			<th> Website</th>
+			<th> First Time Programming?</th>
+			<th> Delete Student </th>
+		</tr>
+			<% @students.each do |student| %>
+		<tr>	
+			<td> <%= student.name %></td>
+			<td> <%= student.surnames %></td>
+			<td> <%= student.birthday %></td>
+			<td> <%= student.number_of_dogs %></td>
+			<td> <a href=<%= student.website %>>Website</a> </td>
+			<td> <%= student.first_programming_experience %></td>
+			<td>
+			<form action = "/student/delete/<%=student.id%>" method = "post">
+				 <% if student.number_of_dogs == 0  %>
+				 <input type="submit" name="delete" value="Delete">
+				<% end %>
+			</form>
+			</td>
+			</tr>
+			<%end%>
+	</table>
+	
+	
+	
+</body>
+</html>
